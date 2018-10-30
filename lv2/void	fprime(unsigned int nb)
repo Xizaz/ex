@@ -1,0 +1,77 @@
+void	fprime(unsigned int nb)
+{
+	unsigned	i;
+
+	if (nb == 1)
+		printf("1");
+	else
+	{
+		i = 1;
+		while (nb > 1)
+		{
+			if (nb % ++i == 0)
+			{
+				printf("%d", i);
+				nb /= i;
+				if (nb > 1)
+					printf("*");
+				--i;
+			}
+		}
+}
+
+int		ft_list_size(t_list *begin_list)
+{
+	int		i;
+
+	i = 0;
+	while (begin_list)
+	{
+		begin_list = begin_list->next;
+		++i;
+	}
+	return (i);
+}
+
+int     *ft_rrange(int start, int end)
+{
+	int	*r;
+	int	len;
+
+	len = (end >= start) ? end - start + 1 : start - end + 1;
+	if (!(r = (int*)malloc(sizeof(int) * len)))
+		return (NULL);
+	 while (len--)
+		 r[len] = (end >= start) ? start++ : start--;
+	return (r);
+}
+
+void	hidenp(char *s1, char *s2)
+{
+	while (*s2)
+		if (*s1 == *s2++)
+			s1++;
+	(*s1 == '\0') ? write(1, "1", 1) : write(1, "0", 1);
+}
+int		pgcd(unsigned int nb, unsigned int nb2)
+{
+	int i;
+
+	i = nb;
+	while (i > 0)
+	{
+		if (nb % i == 0 && nb2 % i == 0)
+			return (i);
+		i--;
+	}
+	return (1);
+}
+
+void	print_hex(int n)
+{
+	if (n >= 16)
+		print_hex(n / 16);
+	n = n % 16;
+	n += n < 10 ? '0' : 'a' - 10;
+	write(1, &n, 1);
+}
