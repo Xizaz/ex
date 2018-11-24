@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcornil <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/26 18:59:28 by jcornil           #+#    #+#             */
-/*   Updated: 2018/07/26 18:59:30 by jcornil          ###   ########.fr       */
+/*   Created: 2018/07/30 11:58:45 by jcornil           #+#    #+#             */
+/*   Updated: 2018/07/30 11:58:52 by jcornil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-void	ft_swap(int *a, int *b)
+int main(int ac, char **av)
 {
-	*a = *a + *b;
-	*b = *a - *b;
-	*a = *a - *b;
+    int hint = 0;
+    
+    if (ac == 1)
+    {
+        printf("Number of hints (max 3): ");
+        scanf("%d",&hint);
+        if (hint >= 1 && hint <= 3)
+        {
+            if (hint >= 1)
+                printf("Deal with -\n");
+            if (hint >= 2)
+                printf("recursion\n");
+            if (hint == 3)
+                printf("10%%\n");
+        }
+    }
+    return(0);
 }
-/*
-int main(int argc, const char *argv[])
-{
-	int a;
-	int b;
-	int *pa;
-	int *pb;
-
-	a = 0;
-	b = 1;
-	pa = &a;
-	pb = &b;
-
-	printf("%d %d \n", a, b);
-	ft_swap(pa, pb);
-	printf("%d %d \n", a, b);
-	return 0;
-}
-*/
